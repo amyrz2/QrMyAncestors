@@ -3,7 +3,19 @@
 from django.http import HttpResponse
 
 def indexPageView(request) :
-    sOutput = '<html><head><title>Home</title></head><body><p style="font-size:50px; background-color:#779ecb; text-align:center; color:white;">Welcome to QRMyAncestors (pun intended)!</p><p style="background-color:#779ecb; color:white; text-align:center; font-size:25px;"><b>The brand new way to share the stories of those you love and admire</b></p><ul style = "color:white; font-size:20px; background-color:#779ecb;"><li>Joy</li><li>Happiness</li><li>Love</li></ul></body></html>'
+    sOutput = '<html>'\
+                '<head><title>Home</title></head>'\
+                '<body>'\
+                    '<p style="font-size:50px; background-color:#779ecb; text-align:center; color:white;">Welcome to QRMyAncestors (pun intended)!</p>'\
+                    '<p style="background-color:#779ecb; color:white; text-align:center; font-size:25px;">'\
+                        '<b>The brand new way to share the stories of those you love and admire</b></p>'\
+                    '<ul style = "color:white; font-size:20px; background-color:#779ecb;">'\
+                        '<li>Joy</li>'\
+                        '<li>Happiness</li>'\
+                        '<li>Love</li>'\
+                    '</ul>'\
+                '</body>'\
+            '</html>'
     return HttpResponse(sOutput)   
 
 def aboutPageView(request) :
