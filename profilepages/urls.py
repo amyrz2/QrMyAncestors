@@ -1,5 +1,7 @@
 from django.urls import path
 from .views import indexPageView, aboutPageView, profilePageView
+# if you use this -> from . import views 
+# then you just do views.viewname in urlpattern path('', views.IndexView.as_view(), name='index'),
 
 
 urlpatterns = [

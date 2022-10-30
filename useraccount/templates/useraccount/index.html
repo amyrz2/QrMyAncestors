@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Account</title>
+</head>
+<body>
+    <h3>User Account:</h3>
+    {% if user_account_list %}
+    <dl style='border-style: solid; display: flex; flex-direction: column;'>
+    {% for user in user_account_list %}
+    <!--<li><a href="/polls/{{ question.id }}/">{{ question.question_text }}</a></li>   The line below replaces this one-->
+        <dt>Username: </dt>
+        <dd>{{ user.user_username }}</dd>
+            <br>
+        <dt>Email: </dt>
+        <dd>{{ user.user_email }}</dd>
+            <br>
+        <dt>First Name: </dt>
+        <dd>{{ user.user_fname }}</dd>
+            <br>
+        <dt>Last Name: </dt>
+        <dd>{{ user.user_lname }}</dd>
+    {% endfor %}
+    </dl>
+    {% else %}
+        <p>No user found.</p>
+    {% endif %}
+
+</body>
+</html>
