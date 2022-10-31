@@ -37,8 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+<<<<<<< HEAD
     'profilepages.apps.ProfilepagesConfig',
     'useraccount.apps.UseraccountConfig'
+=======
+    'pages.apps.PagesConfig'
+>>>>>>> 85bf6f481b912f9feeaddaf627329c7ea8873ea0
 ]
 
 MIDDLEWARE = [
