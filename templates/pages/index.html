@@ -5,6 +5,7 @@
     <meta name="keywords" content="INTUITIVE">
     <meta name="description" content="">
     <title>Home</title>
+    {% extends 'base.html' %}
     {% load static %}
 
     <link rel="stylesheet" href="{% static '/nicepage.css' %}" media="screen">
@@ -43,8 +44,8 @@
 
           <div class="u-custom-menu u-nav-container">
             <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 20px;">Home</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="about.html" style="padding: 10px 20px;">About</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="login.html" style="padding: 10px 20px;">Login</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'pages:about' %}" style="padding: 10px 20px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'pages:login' %}" style="padding: 10px 20px;">Login</a>
 </li></ul>
           </div>
           <div class="u-custom-menu u-nav-container-collapse">
@@ -52,8 +53,8 @@
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
                 <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" >Home</a>
-              </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="about.html">About</a>
-              </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="login.html">Login</a>
+              </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'pages:about' %}">About</a>
+              </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'pages:login' %}">Login</a>
               </li></ul>
             {% endblock %}
               </div>
