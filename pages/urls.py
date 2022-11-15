@@ -7,7 +7,7 @@ app_name = 'pages'
 urlpatterns = [
     path('', views.indexPageView, name='index'),   
     path("about/", views.aboutPageView, name="about"),    
-    path("profile/<str:person_name>", views.profilePageView, name="profile")
+    #path("profile/<str:person_name>", views.profilePageView, name="profile")
 ]  
 
 #Ignore the line below for now

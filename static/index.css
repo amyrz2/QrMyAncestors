@@ -1,0 +1,122 @@
+ .u-section-1 {
+  background-image: none;
+  min-height: 1519px;
+}
+
+.u-section-1 .u-group-1 {
+  min-height: 327px;
+  --animation-custom_in-translate_x: 0px;
+  --animation-custom_in-translate_y: 0px;
+  --animation-custom_in-opacity: 0;
+  --animation-custom_in-rotate: 0deg;
+  --animation-custom_in-scale: 0.3;
+  height: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  background-image: none;
+}
+
+.u-section-1 .u-container-layout-1 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.u-section-1 .u-text-1 {
+  font-family: "Abhaya Libre";
+  margin: 34px 0 0;
+}
+
+.u-section-1 .u-text-2 {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: normal;
+  font-family: "Abhaya Libre";
+  margin: 11px 0 0;
+}
+
+.u-section-1 .u-text-3 {
+  font-family: "Abhaya Libre";
+  margin: 16px 0 0;
+}
+
+.u-section-1 .u-btn-1 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  background-image: none;
+  margin: 25px auto 0;
+  padding: 17px 38px 18px 37px;
+}
+
+.u-section-1 .u-image-1 {
+  margin-top: 11px;
+  margin-bottom: 0;
+  min-height: 1181px;
+  background-image: url("images/8165e52fa72fb218a5e6315ad308e5984bce0f28e7cba3bf62b1531f5af86cc76b78632fd4efe3ba4f2918412324330f5f5a2b48489dcd1d4de80b_1280.jpg");
+  height: auto;
+  background-position: 50% 50%;
+}
+
+.u-section-1 .u-container-layout-2 {
+  padding: 0 14px 1px;
+}
+
+.u-section-1 .u-btn-2 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+  background-image: none;
+  margin: 771px auto 0;
+  padding: 17px 38px 18px 37px;
+}
+
+.u-section-1 .u-text-4 {
+  font-size: 1rem;
+  letter-spacing: 0px;
+  font-style: italic;
+  text-align: left;
+  margin: 313px 1171px 0 0;
+}
+
+.u-section-1 .u-btn-3 {
+  border-style: solid;
+  font-style: italic;
+  padding: 0;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-group-1 {
+    height: auto;
+  }
+
+  .u-section-1 .u-image-1 {
+    height: auto;
+  }
+
+  .u-section-1 .u-text-4 {
+    margin-right: 971px;
+  }
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-text-4 {
+    margin-right: 751px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-container-layout-2 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .u-section-1 .u-text-4 {
+    margin-right: 579px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-text-4 {
+    margin-right: 379px;
+  }
+}
