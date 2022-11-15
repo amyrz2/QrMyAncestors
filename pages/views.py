@@ -11,10 +11,11 @@ from .models import User
 def indexPageView(request) :
     return render(request, 'pages/index.html') 
  
-
 def aboutPageView(request) :
-   
-    return render(request, 'pages/index.html')
+    return render(request, 'pages/about.html')
+
+def loginPageView(request) :
+    return render(request, 'pages/login.html')
 
 def profilePageView(request, person_name) :
     sOutput='<html>'\
