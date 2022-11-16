@@ -82,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'qr_my_ancestors',
         'USER': 'postgres',
-        'PASSWORD': getpass(),
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '5432',
     }
