@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from getpass import getpass
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'qr_my_ancestors',
         'USER': 'postgres',
-        'PASSWORD': 'password',
+        'PASSWORD': getpass(),
         'HOST': 'localhost',
         'PORT': '5432',
     }
