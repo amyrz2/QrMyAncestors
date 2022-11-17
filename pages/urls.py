@@ -9,6 +9,9 @@ urlpatterns = [
     path('', views.indexPageView, name='index'),   
     path("about/", views.aboutPageView, name="about"),    
     path("login/", views.loginPageView, name="login"), 
+    path("community/", views.communityPageView, name="community"),
+    path("ancestors/", views.ancestorsPageView, name="ancestors"),
+    path("createAccount/", views.createaccountPageView, name="createAccount"),
     #path("profile/<str:person_name>", views.profilePageView, name="profile")
 ]  
 

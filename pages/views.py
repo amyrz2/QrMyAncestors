@@ -17,14 +17,22 @@ def aboutPageView(request) :
 def loginPageView(request) :
     return render(request, 'pages/login.html')
 
-def profilePageView(request, person_name) :
+def communityPageView(request) :
+    return render(request, 'pages/community.html')
+
+def ancestorsPageView(request) :
+    return render(request, 'pages/ancestors.html')
+
+def createaccountPageView(request) :
+    return render(request, 'pages/createAccount.html')
+""" def profilePageView(request, person_name) :
     sOutput='<html>'\
                 '<head><title>Contact</title></head>'\
                 '<body>'\
                     '<p style="font-size:50px; color:white; background-color:#779ecb; text-align:center;">About ' + person_name + '\'s Story</p>'\
                 '</body>'\
             '</html>'
-    return HttpResponse(sOutput)
+    return HttpResponse(sOutput) """
 
 #class IndexView(generic.ListView):
     #template_name = 'pages/index.html'
