@@ -12,6 +12,8 @@ urlpatterns = [
     path("community/", views.communityPageView, name="community"),
     path("ancestors/", views.ancestorsPageView, name="ancestors"),
     path("createAccount/", views.createaccountPageView, name="createAccount"),
+    path('biography/', views.biographyPageView, name='biography'),
+
     #path("profile/<str:person_name>", views.profilePageView, name="profile")
 ]  
 

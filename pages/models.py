@@ -44,5 +44,19 @@ class Deceased(models.Model):
     def __str__(self):
         return (self.deceased_full_name)
 
+class Biography(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    gender = models.CharField(max_length=15)
+    birth_day = models.DateField()
+    birth_city = models.CharField(max_length=50)
+    birth_state = models.CharField(max_length=50)
+    birth_country = models.CharField(max_length=50)
+    death_day = models.DateField()
+    death_city = models.CharField(max_length=50)
+    death_state = models.CharField(max_length=50)
+    death_country = models.CharField(max_length=50)
+    bio = models.TextField()
+
 
    

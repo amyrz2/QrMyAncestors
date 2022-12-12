@@ -3,6 +3,8 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.shortcuts import get_object_or_404, render
+from .models import Biography
+from .forms import BiographyForm
 #from django.views import generic
 
 from .models import User
@@ -25,6 +27,19 @@ def ancestorsPageView(request) :
 
 def createaccountPageView(request) :
     return render(request, 'pages/createAccount.html')
+
+def biographyPageView(request):
+    if request.method == 'POST':
+        form = BiographyForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return render(request, 'pages/index.html') 
+    else:
+        form = BiographyForm()
+    return render(request, 'pages/biography.html', {'form': form})
+
+
+    
 """ def profilePageView(request, person_name) :
     sOutput='<html>'\
                 '<head><title>Contact</title></head>'\
