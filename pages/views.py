@@ -2,7 +2,11 @@
 
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
+from .forms import NewUserForm
+from django.contrib.auth import login
+from django.contrib import messages
+import qrcode
 #from django.views import generic
 
 from .models import User
@@ -23,21 +27,35 @@ def communityPageView(request) :
 def ancestorsPageView(request) :
     return render(request, 'pages/ancestors.html')
 
-def createaccountPageView(request) :
-    return render(request, 'pages/createAccount.html')
-""" def profilePageView(request, person_name) :
-    sOutput='<html>'\
-                '<head><title>Contact</title></head>'\
-                '<body>'\
-                    '<p style="font-size:50px; color:white; background-color:#779ecb; text-align:center;">About ' + person_name + '\'s Story</p>'\
-                '</body>'\
-            '</html>'
-    return HttpResponse(sOutput) """
+def register_request(request):
+	if request.method == "POST":
+		form = NewUserForm(request.POST)
+		if form.is_valid():
+			user = form.save()
+			login(request, user)
+			messages.success(request, "Registration successful." )
+			return redirect("main:homepage")
+		messages.error(request, "Unsuccessful registration. Invalid information.")
+	form = NewUserForm()
+	return render (request, "pages/register.html", context={"register_form":form})
 
-#class IndexView(generic.ListView):
-    #template_name = 'pages/index.html'
-    #context_object_name = 'user_account_list'
+# def createaccountPageView(request) :
+#     return render(request, 'pages/createAccount.html')
+# """ def profilePageView(request, person_name) :
+#     sOutput='<html>'\
+#                 '<head><title>Contact</title></head>'\
+#                 '<body>'\
+#                     '<p style="font-size:50px; color:white; background-color:#779ecb; text-align:center;">About ' + person_name + '\'s Story</p>'\
+#                 '</body>'\
+#             '</html>'
+#     return HttpResponse(sOutput) """
 
-    #This is a query that will send the desired user's information to the html page
-    #def get_queryset(self):
-        #return User.objects.filter(user_email = 'wirickad@gmail.com')
+def qr_code(request):
+    url = request.build_absolute_uri()
+    img = qrcode.make(url)
+    response = HttpResponse(content_type="image/png")
+    img.save(response, "PNG")
+    
+    
+    return response
+
