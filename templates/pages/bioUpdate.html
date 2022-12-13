@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    form {
+        width: 500px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+    form label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    form button {
+        margin-top: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+
+<center><h1>Update Biography</h1></center> 
+<form method="POST">
+    {% csrf_token %}
+    <table>
+        {{ form.as_table }}
+    </table>
+    <button type="submit">Submit</button>
+</form>
+
+{% endblock %}

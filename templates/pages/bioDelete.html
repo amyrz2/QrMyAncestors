@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<style>
+    form {
+        width: 500px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+    form label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    form button {
+        margin-top: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+</style>
+<center><h1>Delete Biography</h1></center>
+<p>Are you sure you want to delete {{ biography.name }}'s biography?</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Confirm</button>
+</form>
+
+{% endblock %}
