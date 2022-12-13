@@ -47,7 +47,7 @@
       <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-1-light-2" href="{% url 'pages:about' %}" style="padding: 10px 20px;">About Us</a></li>
       
       {% if user.is_authenticated %}
-      <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-1-light-2" href="{% url 'pages:ancestors' %}" style="padding: 10px 20px;">My Ancestors</a></li>
+      <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-1-light-2" href="{% url 'pages:biophy-list' %}" style="padding: 10px 20px;">My Ancestors</a></li>
       <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-1-light-2" href="{% url 'pages:logout' %}" style="padding: 10px 20px;">Logout</a></li>
       {% else %}
       <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-1-light-2" href="{% url 'pages:login' %}" style="padding: 10px 20px;">Login</a></li>
@@ -63,7 +63,7 @@
           <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'pages:about' %}">About Us</a></li>
           {% if user.is_authenticated %}
           <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'pages:logout' %}">Logout</a></li>
-          <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'pages:ancestors' %}">My Ancesrots</a></li>
+          <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'pages:biophy-list' %}">My Ancesrots</a></li>
           {% else %}
           <li class="u-nav-item"><a class="u-button-style u-nav-link" href="{% url 'pages:login' %}">Login</a></li>
           {%endif%}
