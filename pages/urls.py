@@ -11,7 +11,7 @@ urlpatterns = [
     path("login/", views.loginPageView, name="login"), 
     path("community/", views.communityPageView, name="community"),
     path("ancestors/", views.ancestorsPageView, name="ancestors"),
-    path("register", views.register_request, name='register'),
+    path("register/", views.register_request, name='register'),
     path("logout",views.logout_view,name='logout'),
     path("generate_qr",views.qr_code, name='generate_qr')
 
