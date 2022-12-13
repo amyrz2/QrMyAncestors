@@ -4,5 +4,5 @@ from .models import Deceased, User
 
 
 #admin.site.register(User)
-admin.site.register(User)
+#admin.site.unregister(User)
 admin.site.register(Deceased)

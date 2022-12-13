@@ -1,16 +1,11 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
-from django.contrib.auth import get_user_model
 from django.utils import timezone
 from django.contrib.auth.models import User
+
+
 # Create your models here.
-#Change your models (in models.py).
-#Run python manage.py makemigrations to create migrations for those changes
-#Run python manage.py migrate to apply those changes to the database.
-
-
 class Deceased(models.Model):
-    created_by = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     deceased_first_name = models.CharField(max_length=30)
     deceased_last_name = models.CharField(max_length=30)
     deceased_gender = models.CharField(max_length=1)
