@@ -12,8 +12,11 @@ urlpatterns = [
     path("community/", views.communityPageView, name="community"),
     path("ancestors/", views.ancestorsPageView, name="ancestors"),
     path("createAccount/", views.createaccountPageView, name="createAccount"),
-    path('biography/', views.biographyPageView, name='biography'),
-
+    path('deceased/new/', views.CreateDeceased.as_view(), name='deceased_create'),
+    path('deceased/<int:pk>/edit/', views.UpdateDeceased.as_view(), name='deceased_edit'),
+    path('deceased/<int:pk>/delete/', views.DeleteDeceased.as_view(), name='deceased_delete'),
+    path('deceased/list', views.ListDeceased.as_view(), name='deceased_list'),
+    path('deceased/detail', views.DeseasedDetail.as_view(), name='deceased_detail'),
     #path("profile/<str:person_name>", views.profilePageView, name="profile")
 ]  
 

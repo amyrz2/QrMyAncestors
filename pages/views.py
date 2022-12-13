@@ -1,13 +1,46 @@
 # Create your views here.
 
 from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect  
 from django.urls import reverse
 from django.shortcuts import get_object_or_404, render
-from .models import Biography
-from .forms import BiographyForm
+from .models import Deceased
+from .forms import DeceasedForm
 #from django.views import generic
-
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from .models import User
+
+
+# create class views here
+class CreateDeceased(CreateView):
+    form_class = DeceasedForm
+    template_name = 'pages/deceasedForm.html'
+
+    def form_valid(self, form):
+        deceased = form.save(commit=False)
+        deceased.created_by = self.request.user
+        deceased.save()
+        return redirect('pages/deceasedDetail.html', deceased.id)
+
+class DeseasedDetail(DetailView):
+    model = Deceased
+    context_object_name = 'deceased'
+    template_name = 'pages/deceasedDetail.html'
+
+class ListDeceased(ListView):
+    model = Deceased
+    template_name = 'pages/deceasedList.html'
+
+class UpdateDeceased(UpdateView):
+    form_class = DeceasedForm
+    model = Deceased
+    template_name = 'pages/deceasedForm.html'
+
+class DeleteDeceased(DeleteView):
+    model = Deceased
+    success_url = '/deceased/'
+    template_name = 'pages/deceasedConfirmDelete.html'
+
 # Create your views here.
 
 def indexPageView(request) :
@@ -28,15 +61,6 @@ def ancestorsPageView(request) :
 def createaccountPageView(request) :
     return render(request, 'pages/createAccount.html')
 
-def biographyPageView(request):
-    if request.method == 'POST':
-        form = BiographyForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return render(request, 'pages/index.html') 
-    else:
-        form = BiographyForm()
-    return render(request, 'pages/biography.html', {'form': form})
 
 
     
