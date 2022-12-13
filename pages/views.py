@@ -50,6 +50,7 @@ def loginPageView(request) :
             return render(request, 'pages/login.html',context)
     else:
         return render(request, 'pages/login.html')
+
 def communityPageView(request) :
     return render(request, 'pages/community.html')
 
