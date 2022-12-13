@@ -1,12 +1,15 @@
 {% extends 'base.html' %}
-{% load static %}
+{% block title %} Delete Profile {% endblock %}
+{% block link %} <link rel="stylesheet" href="../../static/css/biocreate.css" media="screen"> {% endblock %}
+
+{% load static %}s
 {% block content %}
 <style>
     form {
         width: 500px;
         margin: auto;
         padding: 20px;
-        border: 1px solid #ccc;
+        {% comment %} border: 1px solid #ccc; {% endcomment %}
         border-radius: 10px;
     }
     form label {
@@ -16,7 +19,7 @@
     form input, form textarea {
         width: 100%;
         padding: 10px;
-        border: 1px solid #ccc;
+        {% comment %} border: 1px solid #ccc; {% endcomment %}
         border-radius: 5px;
     }
     form button {
@@ -30,11 +33,19 @@
         cursor: pointer;
     }
 </style>
-<center><h1>Delete Biography</h1></center>
-<p>Are you sure you want to delete {{ biography.name }}'s biography?</p>
+
+<section class="u-align-center u-clearfix u-section-1" id="sec-a0ef">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+      <h2 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-custom-color-1 u-text-1" spellcheck="false">Delete Profile</h2>
+    </div>
+    <p class="u-text u-text-2">Are you sure you want to delete {{ biography.name }}'s biography?&nbsp;</p>
+  </section>
+
 <form method="POST">
     {% csrf_token %}
-    <button type="submit">Confirm</button>
-</form>
-
+    <div class="u-align-center u-form-group u-form-submit">
+        <a class="u-active-palette-1-light-2 u-border-none u-btn u-btn-submit u-button-style">Confirm</a>
+        <input type="submit" value="submit" class="u-form-control-hidden">
+      </div></form>
+<br> <br> <br> <br>
 {% endblock %}

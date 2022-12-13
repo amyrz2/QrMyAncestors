@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% block title %} My Ancestors {% endblock %}
+{% load static %}
+{% block content %}
+      
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      tr:nth-child(odd) td {
+        background-color: #FFFFFF;
+      }
+      
+      tr:nth-child(even) td {
+        background-color: #DDDDDD;
+      }
+      
+      td {
+        border: 0.5px solid grey;
+        text-align: left;
+        font-size: 14px;
+        padding: 20px 25px;
+
+      }
+      th {
+        font-size: 13px;
+      }
+      
+    button {
+        
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        border-radius:10%;
+        border: 2px solid gray;
+    }
+
+    .delete-button {
+        background-color: #ff6666;
+        color: white;
+    }
+
+    .update-button {
+        background-color: #ffffff;
+        color: black;
+        
+
+    button:hover {
+        opacity: 0.8;
+    }
+</style>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Gender</th>
+            <th>Birthdate</th>
+            <th>Birth City</th>
+            <th>Birth State</th>
+            <th>Birth Country</th>
+            <th>Deathdate</th>
+            <th>Death City</th>
+            <th>Death State</th>
+            <th>Death Country</th>
+            <th>Bio</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for biography in biographies %}
+            <tr>
+                <td>{{ biography.first_name }}</td>
+                <td>{{ biography.last_name }}</td>
+                <td>{{ biography.gender }}</td>
+                <td>{{ biography.birthdate }}</td>
+                <td>{{ biography.birth_city }}</td>
+                <td>{{ biography.birth_state }}</td>
+                <td>{{ biography.birth_country }}</td>
+                <td>{{ biography.deathdate }}</td>
+                <td>{{ biography.death_city }}</td>
+                <td>{{ biography.death_state }}</td>
+                <td>{{ biography.death_country }}</td>
+                <td>{{ biography.bio }}</td>
+                <td>
+                    
+                    <a href="/{{ biography.pk }}/bioUpdate/"><button class="delete-button">Update</button></a>
+                    <a href="/{{ biography.pk }}/bioDelete/"><button class="update-button">Delete</button></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+    
+{% endblock %}
+
+

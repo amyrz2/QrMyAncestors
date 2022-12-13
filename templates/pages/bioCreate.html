@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% block title %} Create Profile {% endblock %}
+{% block link %} <link rel="stylesheet" href="../../static/css/biocreate.css" media="screen"> {% endblock %}
 {% load static %}
 {% block content %}
 <style>
@@ -31,13 +33,22 @@
     }
 </style>
 
- <center><h1>Create Biography</h1></center>
+<section class="u-align-center u-clearfix u-section-1" id="sec-a0ef">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+      <h2 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-custom-color-1 u-text-1" spellcheck="false">Create Profile</h2>
+    </div>
+  </section>
+
  <form method="POST">
      {% csrf_token %}
      <table>
          {{ form.as_table }}
      </table>
-     <button type="submit">Submit</button>
+     <div class="u-align-center u-form-group u-form-submit">
+        <a class="u-active-palette-1-light-2 u-border-none u-btn u-btn-submit u-button-style">Submit</a>
+        <input type="submit" value="submit" class="u-form-control-hidden">
+      </div>
  </form>
+ <br> <br> <br> <br>
 {% endblock %}
 

@@ -1,25 +1,84 @@
 {% extends 'base.html' %}
 {% block title %} My Ancestors {% endblock %}
 {% block link %} <link rel="stylesheet" href="../../static/css/ancestors.css" media="screen"> {% endblock %}
-
 {% load static %}
 {% block content %}
 
 <!-- All Ancestors-->
-s
+<section class="u-align-center u-clearfix u-section-1" id="sec-a0ef">
+  <div class="u-clearfix u-sheet u-sheet-1">
+    <h2 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-custom-color-1 u-text-1" spellcheck="false">My Ancestors</h2>
+    <a href="https://nicepage.com/k/chart-html-templates" class="u-align-center u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-1">Add Ancestor</a>
+    <p class="u-text u-text-2">Positively&nbsp;</p>
+  </div>
+</section>
+<section class="u-align-center u-clearfix u-section-2" id="sec-2aa4">
+  <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    <div class="u-expanded-width u-table u-table-responsive u-table-1">
+      <table class="u-table-entity u-table-entity-1">
+        <colgroup>
+          <col width="25%">
+          <col width="25%">
+          <col width="25%">
+          <col width="25%">
+        </colgroup>
+        <tbody class="u-table-body">
+          <tr style="height: 64px;">
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Column 1</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Column 2</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Column 3</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Column 4</td>
+          </tr>
+          <tr style="height: 65px;">
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Row 1</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+          </tr>
+          <tr style="height: 65px;">
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Row 2</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+          </tr>
+          <tr style="height: 65px;">
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Row 3</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+          </tr>
+          <tr style="height: 65px;">
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Row 4</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+            <td class="u-border-1 u-border-grey-30 u-table-cell">Description</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 <section class="u-align-center-lg u-align-center-md u-align-center-sm u-align-center-xs u-align-left-xl u-clearfix u-image u-shading u-section-1" id="carousel_3276" data-image-width="1280" data-image-height="853">
-    <div class="u-clearfix u-sheet u-sheet-1">
-      <div class="u-list u-list-1">
-        <div class="u-repeater u-repeater-1">
-          <div class="u-container-style u-custom-color-3 u-list-item u-radius-50 u-repeater-item u-shape-round u-list-item-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
-            <div class="u-container-layout u-similar-container u-container-layout-1">
-              <h2 class="u-custom-font u-font-ubuntu u-text u-text-custom-color-1 u-text-1" spellcheck="false">My Ancestors</h2>
+  <div class="u-clearfix u-sheet u-sheet-1">
+    <div class="u-list u-list-1">
+      <div class="u-repeater u-repeater-1">
+        <div class="u-container-style u-custom-color-3 u-list-item u-radius-50 u-repeater-item u-shape-round u-list-item-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
+          <div class="u-container-layout u-similar-container u-container-layout-1">
+            <h2 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-custom-color-1 u-text-1" spellcheck="false">My Ancestors</h2>
+            <a href='{% url 'pages:bio-create' %}' class="u-align-center u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-1">Add Ancestor</a>
+            <div class="u-align-left u-border-3 u-border-grey-40 u-container-style u-group u-group-1">
+              <div class="u-container-layout u-valign-middle u-container-layout-2">
+                <h4 class="u-align-center u-text u-text-default u-text-2">positively</h4>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
   
 {% endblock %}
 

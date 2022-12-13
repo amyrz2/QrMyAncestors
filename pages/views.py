@@ -11,6 +11,8 @@ import qrcode
 from PIL import Image
 from .models import Deceased
 from .forms import DeceasedForm
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
+from .models import User
 #from django.views import generic
 
 #if request.user.is_authenticated:
@@ -127,3 +129,37 @@ def register_request(request):
         messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
     return render (request, "pages/register.html", context={"register_form":form})
+
+
+
+# OTHER RANDOM ONES
+
+# create class views here
+class CreateDeceased(CreateView):
+    form_class = DeceasedForm
+    template_name = 'pages/deceasedForm.html'
+
+    def form_valid(self, form):
+        deceased = form.save(commit=False)
+        deceased.created_by = self.request.user
+        deceased.save()
+        return redirect('pages/deceasedDetail.html', deceased.id)
+
+class DeseasedDetail(DetailView):
+    model = Deceased
+    context_object_name = 'deceased'
+    template_name = 'pages/deceasedDetail.html'
+
+class ListDeceased(ListView):
+    model = Deceased
+    template_name = 'pages/deceasedList.html'
+
+class UpdateDeceased(UpdateView):
+    form_class = DeceasedForm
+    model = Deceased
+    template_name = 'pages/deceasedForm.html'
+
+class DeleteDeceased(DeleteView):
+    model = Deceased
+    success_url = '/deceased/'
+    template_name = 'pages/deceasedConfirmDelete.html'

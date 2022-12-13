@@ -14,12 +14,12 @@ urlpatterns = [
     path("ancestors/", views.ancestorsPageView, name="ancestors"),
     path("register/", views.register_request, name='register'),
     path("logout/",views.logout_view,name='logout'),
-    path("generate_qr/",views.qr_code, name='generate_qr')
-
+    path("generate_qr/",views.qr_code, name='generate_qr'),
     path('bioCreate/', views.bio_create_view, name='bio-create'),
-    path('bioView', views.bio_list_view, name='biophy-list'),
+    path('bioView/', views.bio_list_view, name='biophy-list'),
     path('<int:pk>/bioUpdate/', views.bio_update_view, name='bio-update'),
     path('<int:pk>/bioDelete/', views.bio_delete_view, name='bio-delete'),
+    
     #path("profile/<str:person_name>", views.profilePageView, name="profile")
 ]  
 

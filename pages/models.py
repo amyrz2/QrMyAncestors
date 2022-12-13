@@ -17,7 +17,7 @@ class User(models.Model):
         return f'{self.first_name, self.last_name, self.email, self.login, self.password, self.phone}'
 
 class Deceased(models.Model):
-    user = models.ForeignKey('User', null=True, blank=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     gender = models.CharField(max_length=1)
