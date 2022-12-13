@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="INTUITIVE">
+    <meta name="description" content="">
+    <link rel="stylesheet" href="{% static '/nicepage.css' %}" media="screen">
+    <script class="u-script" type="text/javascript" src="{% static 'jquery.js' %}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{% static 'nicepage.js' %}" defer=""></script>
+  </head>
+  <body class="u-body u-xl-mode" data-lang="en">
+    <header class="u-clearfix u-grey-80 u-header u-header" id="sec-8529"><div class="u-clearfix u-sheet u-sheet-1">
+        <a href="#" class="u-image u-logo u-image-1" data-image-width="980" data-image-height="200">
+          <img src="{% static 'images/QRmyAncestors-logos_white1.png' %}" class="u-logo-image u-logo-image-1">
+        </a>
+        <nav class="u-menu u-menu-one-level u-offcanvas u-menu-1">
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-1">
+              <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'pages:index' %}" style="padding: 10px 20px;">Home</a></li>
+              <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'pages:ancestors' %}" style="padding: 10px 20px;">My Ancestors</a></li>
+              <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'pages:about' %}" style="padding: 10px 20px;">About Us</a></li>
+              {% if user.is_authenticated %}
+                <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'pages:logout' %}" style="padding: 10px 20px;">Logout</a></li>
+              {% else %}
+                <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="{% url 'pages:login' %}" style="padding: 10px 20px;">Login</a></li>
+              {%endif%}
+    </header>
+
+    
+{% block content %}
+{% endblock %}
+
+    <footer text-align: center; class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-0800">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <p class="u-small-text u-text u-text-variant u-text-1">© 2022 QRmyAncestors</p>
+      </div>
+    </footer>  
+  </body>
+</html>
