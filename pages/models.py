@@ -1,5 +1,4 @@
 from django.db import models
-from django.utils import timezone
 # Create your models here.
 #Change your models (in models.py).
 #Run python manage.py makemigrations to create migrations for those changes
@@ -40,7 +39,7 @@ class Deceased(models.Model):
 
     
     def __str__(self):
-        return f'{self.profile_picture, self.first_name, self.last_name, self.gender, self.birthdate, self.birth_city, self.birth_state, self.birth_country, self.deathdate, self.death_city, self.death_state, self.death_country}'
+        return f'{self.first_name, self.last_name, self.gender, self.birthdate, self.birth_city, self.birth_state, self.birth_country, self.deathdate, self.death_city, self.death_state, self.death_country}'
 
 
 

@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views #use this, and then just do views.viewname
 
+
 # if you use this -> from . import views 
 # then you just do views.viewname in urlpattern path('', views.IndexView.as_view(), name='index'),
 
@@ -12,11 +13,10 @@ urlpatterns = [
     path("community/", views.communityPageView, name="community"),
     path("ancestors/", views.ancestorsPageView, name="ancestors"),
     path("createAccount/", views.createaccountPageView, name="createAccount"),
-    path('deceased/new/', views.CreateDeceased.as_view(), name='deceased_create'),
-    path('deceased/<int:pk>/edit/', views.UpdateDeceased.as_view(), name='deceased_edit'),
-    path('deceased/<int:pk>/delete/', views.DeleteDeceased.as_view(), name='deceased_delete'),
-    path('deceased/list', views.ListDeceased.as_view(), name='deceased_list'),
-    path('deceased/detail', views.DeseasedDetail.as_view(), name='deceased_detail'),
+    path('bioCreate/', views.bio_create_view, name='bio-create'),
+    path('bioView', views.bio_list_view, name='biophy-list'),
+    path('<int:pk>/bioUpdate/', views.bio_update_view, name='bio-update'),
+    path('<int:pk>/bioDelete/', views.bio_delete_view, name='bio-delete'),
     #path("profile/<str:person_name>", views.profilePageView, name="profile")
 ]  
 

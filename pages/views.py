@@ -7,39 +7,10 @@ from django.shortcuts import get_object_or_404, render
 from .models import Deceased
 from .forms import DeceasedForm
 #from django.views import generic
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
+
 from .models import User
+#from django.views import generic
 
-
-# create class views here
-class CreateDeceased(CreateView):
-    form_class = DeceasedForm
-    template_name = 'pages/deceasedForm.html'
-
-    def form_valid(self, form):
-        deceased = form.save(commit=False)
-        deceased.created_by = self.request.user
-        deceased.save()
-        return redirect('pages/deceasedDetail.html', deceased.id)
-
-class DeseasedDetail(DetailView):
-    model = Deceased
-    context_object_name = 'deceased'
-    template_name = 'pages/deceasedDetail.html'
-
-class ListDeceased(ListView):
-    model = Deceased
-    template_name = 'pages/deceasedList.html'
-
-class UpdateDeceased(UpdateView):
-    form_class = DeceasedForm
-    model = Deceased
-    template_name = 'pages/deceasedForm.html'
-
-class DeleteDeceased(DeleteView):
-    model = Deceased
-    success_url = '/deceased/'
-    template_name = 'pages/deceasedConfirmDelete.html'
 
 # Create your views here.
 
@@ -61,17 +32,53 @@ def ancestorsPageView(request) :
 def createaccountPageView(request) :
     return render(request, 'pages/createAccount.html')
 
+# View to display the form for creating a new biography profile
+def bio_create_view(request):
+    form = DeceasedForm()
+    if request.method == 'POST':
+        form = DeceasedForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/bioView/')
+    context = {
+        'form': form
+    }
+    return render(request, 'pages/bioCreate.html', context)
 
+# View to handle the submission of the form and create a new biography profile in the database
+def bio_list_view(request):
+    biographies = Deceased.objects.all()
+    context = {
+        'biographies': biographies
+    }
+    return render(request, 'pages/bioList.html', context)
 
+# View to display the form for updating an existing biography profile
+def bio_update_view(request, pk):
+    biography = Deceased.objects.get(pk=pk)
+    form = DeceasedForm(instance=biography)
+    if request.method == 'POST':
+        form = DeceasedForm(request.POST, instance=biography)
+        if form.is_valid():
+            form.save()
+            return redirect('/bioView/')
+    context = {
+        'form': form
+    }
+    return render(request, 'pages/bioUpdate.html', context)
+
+# View to handle the submission of the form and update the existing biography profile in the database
+def bio_delete_view(request, pk):
+    biography = Deceased.objects.get(pk=pk)
+    if request.method == 'POST':
+        biography.delete()
+        return redirect('/bioView/')
+    context = {
+        'biography': biography
+    }
+    return render(request, 'pages/bioDelete.html', context)
     
-""" def profilePageView(request, person_name) :
-    sOutput='<html>'\
-                '<head><title>Contact</title></head>'\
-                '<body>'\
-                    '<p style="font-size:50px; color:white; background-color:#779ecb; text-align:center;">About ' + person_name + '\'s Story</p>'\
-                '</body>'\
-            '</html>'
-    return HttpResponse(sOutput) """
+
 
 #class IndexView(generic.ListView):
     #template_name = 'pages/index.html'
