@@ -48,17 +48,6 @@ def communityPageView(request) :
 def ancestorsPageView(request) :
     return render(request, 'pages/ancestors.html')
 
-def register_request(request):
-	if request.method == "POST":
-		form = NewUserForm(request.POST)
-		if form.is_valid():
-			user = form.save()
-			login(request, user)
-			messages.success(request, "Registration successful." )
-			return redirect("/index")
-		messages.error(request, "Unsuccessful registration. Invalid information.")
-	form = NewUserForm()
-	return render (request, "pages/register.html", context={"register_form":form})
 
 def qr_code(request):
     url = request.build_absolute_uri()
@@ -70,4 +59,16 @@ def qr_code(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+def register_request(request):
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            messages.success(request, "Registration successful." )
+            return HttpResponseRedirect('/')
+        messages.error(request, "Unsuccessful registration. Invalid information.")
+    form = NewUserForm()
+    return render (request, "pages/register.html", context={"register_form":form})
 
