@@ -98,15 +98,23 @@ def bio_update_view(request, pk):
 # View to handle the submission of the form and update the existing biography profile in the database
 def bio_delete_view(request, pk):
     biography = Deceased.objects.get(pk=pk)
+    
     if request.method == 'POST':
         biography.delete()
         return redirect('/bioView/')
     context = {
-        'biography': biography
+        'biography' : biography
     }
+    
     return render(request, 'pages/bioDelete.html', context)
     
-
+def showSingleProfile(request, pk):
+    biography = Deceased.objects.get(pk=pk)
+   
+    context = {
+        'biography' : biography
+    }
+    return render(request, 'pages/viewonebio.html', context) 
 
 def qr_code(request):
     url = request.build_absolute_uri()

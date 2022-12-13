@@ -5,6 +5,11 @@
 {% block content %}
       
 <style>
+    div {
+      padding-top: 20px;
+      padding-right: 80px;
+      padding-left: 80px;
+    }
     table {
         border-collapse: collapse;
         width: 100%;
@@ -22,7 +27,7 @@
         border: 0.5px solid grey;
         text-align: left;
         font-size: 14px;
-        padding: 20px 25px;
+        padding: 20px ;
 
       }
       th {
@@ -47,7 +52,7 @@
       
       /* Add some padding to create a clean layout */
       button {
-        padding: 10px 20px;
+        padding: 15px 10px;
       }
       
       /* Use a background color on the button */
@@ -75,9 +80,14 @@
     }
 
     .update-button {
-        background-color: #ffffff;
-        color: black;
-        
+        background-color: #4894b6;
+        color: white;
+    }
+
+    .view-button {
+      background-color: white;
+      color: black;
+    }
 
     button:hover {
         opacity: 0.8;
@@ -90,57 +100,55 @@
       <br>
       <a href="{% url 'pages:bio-create' %}" class="u-align-center u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-hover-palette-1-light-1 u-palette-1-base u-radius-50 u-btn-1">Add Ancestor</a>
       {% comment %} <p class="u-text u-text-2">Positively&nbsp;</p> {% endcomment %}
-
+    <br><br><br>
   </section>
 
-  <section class="u-align-center u-clearfix u-section-2" id="sec-2aa4">
-    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-      <div class="u-expanded-width u-table u-table-responsive u-table-1">
-        <table class="u-table-entity u-table-entity-1">
-                <thead>
-                    <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Gender</th>
-                        <th>Birthdate</th>
-                        <th>Birth City</th>
-                        <th>Birth State</th>
-                        <th>Birth Country</th>
-                        <th>Deathdate</th>
-                        <th>Death City</th>
-                        <th>Death State</th>
-                        <th>Death Country</th>
-                        <th>Bio</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for biography in biographies %}
-                        <tr>
-                            <td>{{ biography.first_name }}</td>
-                            <td>{{ biography.last_name }}</td>
-                            <td>{{ biography.gender }}</td>
-                            <td>{{ biography.birthdate }}</td>
-                            <td>{{ biography.birth_city }}</td>
-                            <td>{{ biography.birth_state }}</td>
-                            <td>{{ biography.birth_country }}</td>
-                            <td>{{ biography.deathdate }}</td>
-                            <td>{{ biography.death_city }}</td>
-                            <td>{{ biography.death_state }}</td>
-                            <td>{{ biography.death_country }}</td>
-                            <td>{{ biography.bio }}</td>
-                            <td>
-                                
-                                <a href="/{{ biography.pk }}/bioUpdate/"><button class="delete-button">Update</button></a>
-                                <a href="/{{ biography.pk }}/bioDelete/"><button class="update-button">Delete</button></a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-      </div>
-    </div>
-  </section>
-  <br><br><br>
+
+<div>
+  <table >
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Gender</th>
+                <th>Birthdate</th>
+                <th>Birth City</th>
+                <th>Birth State</th>
+                <th>Birth Country</th>
+                <th>Deathdate</th>
+                <th>Death City</th>
+                <th>Death State</th>
+                <th>Death Country</th>
+                <th>Bio</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for biography in biographies %}
+                <tr>
+                    <td>{{ biography.first_name }}</td>
+                    <td>{{ biography.last_name }}</td>
+                    <td>{{ biography.gender }}</td>
+                    <td>{{ biography.birthdate }}</td>
+                    <td>{{ biography.birth_city }}</td>
+                    <td>{{ biography.birth_state }}</td>
+                    <td>{{ biography.birth_country }}</td>
+                    <td>{{ biography.deathdate }}</td>
+                    <td>{{ biography.death_city }}</td>
+                    <td>{{ biography.death_state }}</td>
+                    <td>{{ biography.death_country }}</td>
+                    <td>{{ biography.bio }}</td>
+                    <td>
+                        <a href="/{{ biography.pk }}/showBio/"><button class="view-button">View</button></a>
+                        <a href="/{{ biography.pk }}/bioUpdate/"><button class="update-button">Update</button></a>
+                        <a href="/{{ biography.pk }}/bioDelete/"><button class="delete-button">Delete</button></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+
+  <br><br><br><br><br><br><br><br><br>
   
 {% comment %} <table>
     <thead>

@@ -4,6 +4,20 @@
 
 {% load static %}
 {% block content %}
+<style>
+  form button {
+      margin-top: 20px;
+      padding: 10px;
+      border: none;
+      border-color: #ccc;
+      border-radius: 5px;
+      background-color: #4894b6;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+  }
+  
+</style>
 
 <!-- login-->
 <section class="u-clearfix u-section-1" id="sec-d41e">
@@ -20,14 +34,19 @@
           <label for="name-98e4" class="u-label">Username</label>
           <input type="text" placeholder="Enter your username" id="usn" name="usn" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
         </div>
+        <br>
         <div class="u-form-group">
           <label for="thePassword" class="u-label">Password</label>
           <input type="password" placeholder="Enter your password" id="thePassword" name="psw" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
         </div>
+        <br>
         <div class="u-align-center u-form-group u-form-submit">
-          <a class="u-active-palette-1-light-2 u-border-none u-btn u-btn-submit u-button-style">Login</a>
-          <input type="submit" value="submit" class="u-form-control-hidden">
+          <button type="submit">Login</button>
         </div>
+        <div class="u-align-center u-form-group u-form-submit">
+          
+        </div>
+
       </form>
     </div>
     <a href="{%url "pages:register"%}" class="u-active-none u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-top-left-radius-0 u-top-right-radius-0 u-btn-2">Don't have an account? Sign up now!</a>

@@ -19,6 +19,7 @@ urlpatterns = [
     path('bioView/', views.bio_list_view, name='biophy-list'),
     path('<int:pk>/bioUpdate/', views.bio_update_view, name='bio-update'),
     path('<int:pk>/bioDelete/', views.bio_delete_view, name='bio-delete'),
+    path("<int:pk>/showBio/", views.showSingleProfile, name='showSingleProfile'),
     #path("profile/<str:person_name>", views.profilePageView, name="profile")
 ]  
 
