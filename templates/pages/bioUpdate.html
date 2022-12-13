@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% block title %} Update Profile {% endblock %}
+{% block link %} <link rel="stylesheet" href="../../static/css/biocreate.css" media="screen"> {% endblock %}
 {% load static %}
 {% block content %}
 <style>
@@ -24,7 +26,7 @@
         padding: 10px;
         border: none;
         border-radius: 5px;
-        background-color: #007bff;
+        background-color: #4894b6;
         color: white;
         font-weight: bold;
         cursor: pointer;
@@ -64,13 +66,21 @@
 
 </style>
 
-<center><h1>Update Biography</h1></center> 
+<section class="u-align-center u-clearfix u-section-1" id="sec-a0ef">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+      <h2 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-custom-color-1 u-text-1" spellcheck="false"s>Update Profile</h2>
+    </div>
+  </section>
+
 <form method="POST">
     {% csrf_token %}
     <table>
         {{ form.as_table }}
     </table>
-    <button type="submit">Submit</button>
-</form>
-
+    <div class="u-align-center u-form-group u-form-submit">
+      <button type="submit">Update</button>
+    </div>
+  
+    </form>
+      <br> <br> <br> <br>
 {% endblock %}
