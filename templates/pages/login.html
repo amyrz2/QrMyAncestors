@@ -3,21 +3,22 @@
 {% block content %}
 <!-- login-->
 <div class="u-align-center-lg u-align-center-md u-align-center-xl u-align-left-sm u-align-left-xs u-clearfix u-valign-top u-section-1" id="carousel_0eba">
-    <form action="login()" method="GET">
+    <h2>Log In</h2>
+
+    <form action="/login/" method="POST">
+        {% csrf_token %}
         <fieldset style="width:0px;">
             <legend>Login</legend>
-            <label for="username">Username:
+            <label for="username">Username:</label>
+            <input type="text" name='usn' id="usn" title="Enter your username">
             <br>
-            <input type="text" id="firstName" title="Enter your username">
-            </label>
-            <label for="thePassword">Password:
+            <label for="thePassword">Password:</label>
+            <input type="password" name='psw'  id="thePassword" title="Enter your username">
             <br>
-            <input type="password" id="thePassword" title="Enter your username">
-            </label>
             <br><br>
-            <button type="submit" id="submit">Submit Data</button>
+            <button type="submit" id="submit">Log in</button>
             <br><br>
-            <p>Create account here</p>
+            <p><a href={%url 'pages:register'%}>Create account here</p>
         </fieldset>
     </form>
 </div>
