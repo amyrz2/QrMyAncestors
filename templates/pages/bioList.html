@@ -37,9 +37,38 @@
         cursor: pointer;
         width: 100%;
         border-radius:10%;
-        border: 2px solid gray;
+        border: 2px solid;
+        border-color: #ccc;
     }
-
+    :root {
+        --primary-color: #333;
+        --secondary-color: #f7f7f7;
+      }
+      
+      /* Add some padding to create a clean layout */
+      button {
+        padding: 10px 20px;
+      }
+      
+      /* Use a background color on the button */
+      button {
+        background-color: var(--primary-color);
+        color: #fff;
+      }
+      
+      /* Use a hover effect to change the background color on mouseover */
+      button:hover {
+        background-color: #555;
+      }
+      
+      /* Use a responsive design to ensure the button looks great on all devices */
+      @media (max-width: 600px) {
+        button {
+          font-size: 14px;
+        }
+      }
+      These are just a few ideas to get you started. There are countless ways to improve the visual appeal of a button with CSS, so have fun experimenting and finding what works best for you!
+      
     .delete-button {
         background-color: #4894b6;
         color: white;
@@ -146,8 +175,8 @@
                 <td>{{ biography.bio }}</td>
                 <td>
                     
-                    <a href="/{{ biography.pk }}/bioUpdate/"><button class="delete-button">Update</button></a>
-                    <a href="/{{ biography.pk }}/bioDelete/"><button class="update-button">Delete</button></a>
+                    <a href="/{{ biography.pk }}/bioUpdate/"><button class="delete-button"><b>Update</b></button></a>
+                    <a href="/{{ biography.pk }}/bioDelete/"><button class="update-button"><b>Delete</b></button></a>
                 </td>
             </tr>
         {% endfor %}

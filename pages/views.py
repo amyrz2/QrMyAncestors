@@ -34,22 +34,24 @@ def aboutPageView(request) :
     return render(request, 'pages/about.html')
 
 def loginPageView(request) :
-    if request.method == "GET":
-        return render(request, 'pages/login.html')
-    else:
+    
+    if request.method == "POST":
         sUsername = request.POST['usn']
         sPassword = request.POST['psw']
         user = authenticate(request, username=sUsername, password=sPassword)
         if user is not None:
+            
             login(request, user)
             # Redirect to a success page.
-            response = HttpResponseRedirect('/')
+            response = HttpResponseRedirect('/ancestors')
             return response
             
         else:
+            print("Failed")
             context = {'failed':True}
             return render(request, 'pages/login.html',context)
-
+    else:
+        return render(request, 'pages/login.html')
 def communityPageView(request) :
     return render(request, 'pages/community.html')
 
