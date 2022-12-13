@@ -1,0 +1,46 @@
+{% extends 'partials/base.html' %}
+{% block title %} Home {% endblock %}
+{% block link %} <link rel="stylesheet" href="../../static/css/newindex.css" media="screen"> {% endblock %}
+{% comment %} Make If statement: if login then prelogin/base.html else postlogin/base.html {% endcomment %}
+
+{% block include %}
+{% include 'partials/prenav.html' %}
+{% endblock %}
+
+{% block content %}
+
+<section class="u-clearfix u-image u-section-1" id="sec-9e56" data-image-width="1280" data-image-height="853">
+  <div class="u-clearfix u-sheet u-sheet-1">
+    <div class="u-bottom-right-radius-50 u-container-style u-group u-shape-round u-top-right-radius-50 u-white u-group-1" data-animation-name="customAnimationIn" data-animation-duration="2000">
+      <div class="u-container-layout u-container-layout-1">
+        <h2 class="u-custom-font u-font-ubuntu u-text u-text-custom-color-1 u-text-default u-text-1" spellcheck="false">Who We Are</h2>
+        <p class="u-text u-text-default u-text-2" spellcheck="false"> We are on a mission to connect people with<br>their past on a new level.&nbsp;
+        </p>
+        <a href="About-Us.html" class="u-border-2 u-border-grey-75 u-btn u-btn-round u-button-style u-custom-color-1 u-hover-palette-4-base u-radius-50 u-btn-1">Learn More</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="u-align-center u-clearfix u-container-align-center-md u-container-align-center-sm u-container-align-center-xs u-white u-section-2" id="carousel_00fd">
+  <div class="u-clearfix u-sheet u-sheet-1">
+    <h2 class="u-align-center-md u-align-center-sm u-align-center-xs u-custom-font u-font-ubuntu u-text u-text-palette-1-base u-text-1" spellcheck="false">Technology has already helped connect us with our loved ones who have passed on. Why not add to it?</h2>
+    <p class="u-align-center-md u-align-center-sm u-align-center-xs u-large-text u-text u-text-variant u-text-2" spellcheck="false">With QR my ancestors, you have the choice to spread the inspiring stories of those before with:</p>
+    <div class="u-list u-list-1">
+      <div class="u-repeater u-repeater-1">
+        <div class="u-align-center u-container-style u-custom-color-1 u-list-item u-repeater-item u-shape-rectangle u-list-item-1">
+          <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-1">
+            <p class="u-align-center u-custom-font u-font-ubuntu u-text u-text-default u-text-3">Gravesite QR Codes</p>
+            <div class="u-image u-image-circle u-preserve-proportions u-image-1" alt="" data-image-width="1280" data-image-height="1280"></div>
+          </div>
+        </div>
+        <div class="u-align-center u-container-style u-custom-color-1 u-list-item u-repeater-item u-shape-rectangle u-list-item-2">
+          <div class="u-container-layout u-similar-container u-valign-bottom u-container-layout-2">
+            <p class="u-align-center u-custom-font u-font-ubuntu u-text u-text-default u-text-4" spellcheck="false">Ancestor Database</p>
+            <div class="u-image u-image-circle u-preserve-proportions u-image-2" alt="" data-image-width="1280" data-image-height="813"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

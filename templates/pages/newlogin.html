@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- login-->
+<div class="u-align-center-lg u-align-center-md u-align-center-xl u-align-left-sm u-align-left-xs u-clearfix u-valign-top u-section-1" id="carousel_0eba">
+    <form action="login()" method="GET">
+        <fieldset style="width:0px;">
+            <legend>Login</legend>
+            <label for="username">Username:
+            <br>
+            <input type="text" id="firstName" title="Enter your username">
+            </label>
+            <label for="thePassword">Password:
+            <br>
+            <input type="password" id="thePassword" title="Enter your username">
+            </label>
+            <br><br>
+            <button type="submit" id="submit">Submit Data</button>
+            <br><br>
+            <p>Create account here</p>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}
+
+
