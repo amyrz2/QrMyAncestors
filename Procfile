@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn QrMyAncestors.wsgi
+web: python manage.py migrate && gunicorn qrmyancestors
