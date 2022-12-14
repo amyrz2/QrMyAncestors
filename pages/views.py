@@ -134,7 +134,7 @@ def register_request(request):
     return render (request, "pages/register.html", context={"register_form":form})
 
 
- def bio_create_view(request):
+def bio_create_view(request):
     form = DeceasedForm()
     if request.method == 'POST':
         form = DeceasedForm(request.POST)
