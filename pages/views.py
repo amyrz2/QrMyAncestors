@@ -121,7 +121,7 @@ def qr_code(request):
     img = qrcode.make(url)
     response = HttpResponse(content_type="image/png")
     img.save(response, "PNG")
-    return response
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 def logout_view(request):
     logout(request)
@@ -131,10 +131,13 @@ def register_request(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
         if form.is_valid():
+            print('registered')
             user = form.save()
             login(request, user)
             messages.success(request, "Registration successful." )
             return HttpResponseRedirect('/')
+        else:
+            print('failed')
         messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
     return render (request, "pages/register.html", context={"register_form":form})
