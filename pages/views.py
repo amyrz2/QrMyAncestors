@@ -42,7 +42,7 @@ def loginPageView(request) :
             
             login(request, user)
             # Redirect to a success page.
-            response = HttpResponseRedirect('/ancestors')
+            response = HttpResponseRedirect('/bioView/')
             return response
             
         else:
@@ -58,7 +58,7 @@ def bio_create_view(request):
     if request.method == 'POST':
         f = DeceasedForm(request.POST)
         if f.is_valid():
-            print('in here')
+            print(request.user.id)
             new_bio = f.save(commit=False)
             new_bio.user_id = request.user.id
             new_bio.save()
@@ -132,7 +132,7 @@ def register_request(request):
         if form.is_valid():
             
             form.save()
-            login(request, user)
+            
             messages.success(request, "Registration successful." )
             return redirect('/login/')
         else:
@@ -142,14 +142,14 @@ def register_request(request):
     return render (request, "pages/register.html", context={"register_form":form})
 
 
- def bio_create_view(request):
-    form = DeceasedForm()
-    if request.method == 'POST':
-        form = DeceasedForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('/bioView/')
-    context = {
-        'form': form
-    }
-    return render(request, 'pages/bioCreate.html', context)
+# def bio_create_view(request):
+#     form = DeceasedForm()
+#     if request.method == 'POST':
+#         form = DeceasedForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/bioView/')
+#     context = {
+#         'form': form
+#     }
+#     return render(request, 'pages/bioCreate.html', context)
