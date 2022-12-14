@@ -131,7 +131,7 @@ def register_request(request):
         form = NewUserForm(request.POST)
         if form.is_valid():
             
-            form.save()
+            user = form.save()
             login(request, user)
             messages.success(request, "Registration successful." )
             return redirect('/login/')
@@ -142,7 +142,7 @@ def register_request(request):
     return render (request, "pages/register.html", context={"register_form":form})
 
 
- def bio_create_view(request):
+def bio_create_view(request):
     form = DeceasedForm()
     if request.method == 'POST':
         form = DeceasedForm(request.POST)
