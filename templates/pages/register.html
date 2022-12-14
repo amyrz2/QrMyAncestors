@@ -7,6 +7,13 @@
 
 {% load crispy_forms_tags %}         
 <style>
+	.myDiv {
+		text-align: left;
+		width: 85%;
+		padding-right: 15%;
+    	padding-left: 15%;
+		margin: 0 auto;
+	}
 	form button {
 		margin-top: 20px;
 		padding: 10px;
@@ -26,37 +33,16 @@
 	  <h2 class="u-custom-font u-font-ubuntu u-text u-text-custom-color-1 u-text-default u-text-1" spellcheck="false">Register</h2>
 	</div>
   </section>
-  <section class="u-clearfix u-section-2" id="sec-1fb0">
-	<div class="u-clearfix u-sheet u-valign-top u-sheet-1">
-	  <div class="u-form u-form-1">
-		<form method="POST" action="/register/" class="u-clearfix u-form-spacing-10 u-form-vertical u-inner-form" name="form" style="padding: 10px;">
-			{% csrf_token %}
-			{{ register_form|crispy }}                    
-			<div class="u-align-center u-form-group u-form-submit">
-				<button type="submit">Register</button>
-			</div>
-		</form>
-	  </div>
-	  <a href="{%url "pages:login"%}" class="u-active-none u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-top-left-radius-0 u-top-right-radius-0 u-btn-2">If you already have an account, login instead</a>
-
-	</div>
-
-	  
-  </section>
-  <br><br><br>
 
 
-{% comment %} 
-<div class="container py-5">
-	<h1>Register</h1>
+<div class="myDiv">
 	<form method="POST">
 		{% csrf_token %}
 		{{ register_form|crispy }}                    
-		<button class="btn btn-primary" type="submit">Register</button>
+		<button classs="btn btn-primary" type="submit">Register</button>
 	</form>
 	<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
-</div> {% endcomment %}
-
-
+</div>
+<br><br><br><br><br><br><br><br>
 
 {% endblock %}
