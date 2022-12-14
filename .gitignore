@@ -176,3 +176,12 @@ qrmyancestors/settings.py
 #.idea/
 
 # End of https://www.toptal.com/developers/gitignore/api/django
+.env/
+.venv/
+env/
+venv/
+*.env
+
+*.pyc
+db.sqlite3
+staticfiles/
