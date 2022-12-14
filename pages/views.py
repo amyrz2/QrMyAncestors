@@ -131,7 +131,7 @@ def register_request(request):
         form = NewUserForm(request.POST)
         if form.is_valid():
             
-            form.save()
+            user = form.save()
             login(request, user)
             messages.success(request, "Registration successful." )
             return redirect('/login/')
