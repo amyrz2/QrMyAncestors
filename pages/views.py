@@ -52,15 +52,6 @@ def loginPageView(request) :
     else:
         return render(request, 'pages/login.html')
 
-def communityPageView(request) :
-    return render(request, 'pages/community.html')
-
-def ancestorsPageView(request) :
-    return render(request, 'pages/ancestors.html')
-
-def createaccountPageView(request) :
-    return render(request, 'pages/createAccount.html')
-
 # View to display the form for creating a new biography profile
 def bio_create_view(request):
     form = DeceasedForm()
@@ -139,13 +130,26 @@ def register_request(request):
     if request.method == "POST":
         form = NewUserForm(request.POST)
         if form.is_valid():
-            print('registered')
-            user = form.save()
+            
+            form.save()
             login(request, user)
             messages.success(request, "Registration successful." )
-            return HttpResponseRedirect('/')
+            return redirect('/login/')
         else:
             print('failed')
         messages.error(request, "Unsuccessful registration. Invalid information.")
     form = NewUserForm()
     return render (request, "pages/register.html", context={"register_form":form})
+
+
+ def bio_create_view(request):
+    form = DeceasedForm()
+    if request.method == 'POST':
+        form = DeceasedForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/bioView/')
+    context = {
+        'form': form
+    }
+    return render(request, 'pages/bioCreate.html', context)
