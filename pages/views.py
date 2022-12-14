@@ -11,6 +11,7 @@ import qrcode
 from PIL import Image
 from .models import Deceased
 from .forms import DeceasedForm
+from django.contrib.auth.models import User
 #from django.views import generic
 
 #if request.user.is_authenticated:
@@ -55,9 +56,12 @@ def loginPageView(request) :
 def bio_create_view(request):
     form = DeceasedForm()
     if request.method == 'POST':
-        form = DeceasedForm(request.POST)
-        if form.is_valid():
-            form.save()
+        f = DeceasedForm(request.POST)
+        if f.is_valid():
+            print('in here')
+            new_bio = f.save(commit=False)
+            new_bio.user_id = request.user.id
+            new_bio.save()
             return redirect('/bioView/')
     context = {
         'form': form
@@ -66,7 +70,10 @@ def bio_create_view(request):
 
 # View to handle the submission of the form and create a new biography profile in the database
 def bio_list_view(request):
-    biographies = Deceased.objects.all()
+    thisUser = request.user.id
+    
+    #entries = Journal_Line_Item.objects.filter(user=thisUser)
+    biographies = Deceased.objects.filter(user_id = thisUser)
     context = {
         'biographies': biographies
     }
@@ -76,6 +83,7 @@ def bio_list_view(request):
 def bio_update_view(request, pk):
     biography = Deceased.objects.get(pk=pk)
     form = DeceasedForm(instance=biography)
+    
     if request.method == 'POST':
         form = DeceasedForm(request.POST, instance=biography)
         if form.is_valid():

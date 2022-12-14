@@ -3,21 +3,21 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 
 
-class User(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    email = models.EmailField(max_length=50)
-    login = models.CharField(max_length=30)
-    password = models.CharField(max_length=20)
-    phone = models.CharField(max_length=10) 
-    class Meta:
-        db_table = 'user'
+# class User(models.Model):
+#     first_name = models.CharField(max_length=30)
+#     last_name = models.CharField(max_length=30)
+#     email = models.EmailField(max_length=50)
+#     login = models.CharField(max_length=30)
+#     password = models.CharField(max_length=20)
+#     phone = models.CharField(max_length=10) 
+#     class Meta:
+#         db_table = 'user'
     
-    def __str__(self):
-        return f'{self.first_name, self.last_name, self.email, self.login, self.password, self.phone}'
+#     def __str__(self):
+#         return f'{self.first_name, self.last_name, self.email, self.login, self.password, self.phone}'
 
 class Deceased(models.Model):
-    user = models.ForeignKey('User', null=True, blank=True, on_delete=models.SET_NULL)
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     gender = models.CharField(max_length=1)
