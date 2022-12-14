@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block title %} Create Profile {% endblock %}
+{% block link %} <link rel="stylesheet" href="../../static/css/biocreate.css" media="screen"> {% endblock %}
+{% load static %}
+{% block content %}
+
+<style>
+    form {
+        width: 500px;
+        margin: auto;
+        padding: 20px;
+        {% comment %} border: 1px solid #ccc; {% endcomment %}
+        border-radius: 10px;
+    }
+    form label {
+        display: block;
+        margin-bottom: 10px;
+    }
+    form input, form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    form button {
+        margin-top: 20px;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #4894b6;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    
+    form {
+        margin-bottom: 790px; /* add a 20px margin at the bottom of the form */
+      }
+
+    .p1 {
+        color: #333;
+        font-size: 18px; /* set the font size to 16px */
+        font-family: sans-serif; /* use a sans-serif typeface */
+        font-weight: bold; /* set the font weight to bold */
+    }
+
+
+    /* Add some padding to create a clean layout */
+    button {
+    padding: 10px 20px;
+    }
+
+    /* Use a background color on the button */
+    button {
+    background-color: var(--primary-color);
+    color: #fff;
+    }
+
+    /* Use a hover effect to change the background color on mouseover */
+    button:hover {
+    background-color: #555;
+    }
+
+    /* Use a responsive design to ensure the button looks great on all devices */
+    @media (max-width: 600px) {
+    button {
+        font-size: 14px;
+    }
+    }
+
+      
+</style>
+
+<section class="u-align-center u-clearfix u-section-1" id="sec-a0ef">
+    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+      <h2 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-custom-color-1 u-text-1" spellcheck="false">Delete Profile</h2>
+    </div>
+    <p class="u-text u-text-2">Are you sure you want to delete {{ biography.first_name }}  {{biography.last_name}}'s biography?&nbsp;</p>
+  </section>
+
+<center>
+<form class = 'form' method="POST">
+    {% csrf_token %}
+    <div class="u-align-center u-form-group u-form-submit">
+        <button type="submit">Confirm</button>
+    </div>
+</form>
+
+</center>
+
+{% endblock %}

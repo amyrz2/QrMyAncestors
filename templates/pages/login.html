@@ -1,26 +1,86 @@
 {% extends 'base.html' %}
+{% block title %} Login {% endblock %}
+{% block link %} <link rel="stylesheet" href="../../static/css/login.css" media="screen"> {% endblock %}
+
+{% load static %}
+{% block content %}
+<style>
+  form button {
+      margin-top: 20px;
+      padding: 10px;
+      border: none;
+      border-color: #ccc;
+      border-radius: 5px;
+      background-color: #4894b6;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+  }
+  
+</style>
+
+<!-- login-->
+<section class="u-clearfix u-section-1" id="sec-d41e">
+  <div class="u-clearfix u-sheet u-sheet-1">
+    <h2 class="u-custom-font u-font-ubuntu u-text u-text-custom-color-1 u-text-default u-text-1" spellcheck="false">Login</h2>
+  </div>
+</section>
+<section class="u-clearfix u-section-2" id="sec-1fb0">
+  <div class="u-clearfix u-sheet u-valign-top u-sheet-1">
+    <div class="u-form u-form-1">
+      <form method="POST" action="/login/"  style="padding: 10px;">
+        {% csrf_token %}
+        <div class="u-form-group u-form-name">
+          <label for="name-98e4" class="u-label">Username</label>
+          <input type="text" placeholder="Enter your username" id="usn" name="usn" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+        </div>
+        <br>
+        <div class="u-form-group">
+          <label for="thePassword" class="u-label">Password</label>
+          <input type="password" placeholder="Enter your password" id="thePassword" name="psw" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
+        </div>
+        <br>
+        <div class="u-align-center u-form-group u-form-submit">
+          <button type="submit">Login</button>
+        </div>
+        <div class="u-align-center u-form-group u-form-submit">
+          
+        </div>
+
+      </form>
+    </div>
+    <a href="{%url "pages:register"%}" class="u-active-none u-border-2 u-border-no-left u-border-no-right u-border-no-top u-border-palette-1-base u-bottom-left-radius-0 u-bottom-right-radius-0 u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-top-left-radius-0 u-top-right-radius-0 u-btn-2">Don't have an account? Sign up now!</a>
+  </div>
+</section>
+
+
+{% endblock %}
+
+{% comment %} 
+{% extends 'base.html' %}
 {% load static %}
 {% block content %}
 <!-- login-->
 <div class="u-align-center-lg u-align-center-md u-align-center-xl u-align-left-sm u-align-left-xs u-clearfix u-valign-top u-section-1" id="carousel_0eba">
-    <form action="login()" method="GET">
+    <h2>Log In</h2>
+
+    <form action="/login/" method="POST">
+        {% csrf_token %}
         <fieldset style="width:0px;">
             <legend>Login</legend>
-            <label for="username">Username:
+            <label for="username">Username:</label>
+            <input type="text" name='usn' id="usn" title="Enter your username">
             <br>
-            <input type="text" id="firstName" title="Enter your username">
-            </label>
-            <label for="thePassword">Password:
+            <label for="thePassword">Password:</label>
+            <input type="password" name='psw'  id="thePassword" title="Enter your username">
             <br>
-            <input type="password" id="thePassword" title="Enter your username">
-            </label>
             <br><br>
-            <button type="submit" id="submit">Submit Data</button>
+            <button type="submit" id="submit">Log in</button>
             <br><br>
-            <p>Create account here</p>
+            <p><a href={%url 'pages:register'%}>Create account here</p>
         </fieldset>
     </form>
 </div>
 {% endblock %}
 
-
+ {% endcomment %}
